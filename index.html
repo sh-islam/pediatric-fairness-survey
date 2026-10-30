@@ -169,7 +169,7 @@ async function login(raw) {
   lm.textContent = "Loading…";
   let r;
   try { r = await fetch(`${API}/session?name=${encodeURIComponent(name)}&k=${encodeURIComponent(S.k)}`); }
-  catch { lm.textContent = "Can't reach the server. Check your connection and try again."; return; }
+  catch { lm.textContent = "Can't reach the server. Check your connection; if the browser asked about access to your local network, choose Allow. Then try again."; return; }
   if (r.status === 403) { lm.textContent = "This page needs the full link you were sent (it has an access code)."; return; }
   if (!r.ok) { lm.textContent = `Server error (${r.status}). Try again in a minute.`; return; }
   const d = await r.json();
